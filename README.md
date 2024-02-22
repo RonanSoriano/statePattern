@@ -1,20 +1,31 @@
 # Problem Statement
 
 A bank needs to manage different states of customer accounts, including active, suspended, and closed. Each state has specific rules and restrictions regarding allowed operations, and accounts have associated attributes like account number and balance.
-Active accounts: Allow deposits and withdrawals.
-Suspended accounts: Disallow deposits and withdrawals transactions, but allow viewing account information.
-Closed accounts: Disallow all transactions and viewing of account information.
+
+<ul>
+  <li><b>Active accounts:</b> Allow deposits and withdrawals.</li>
+  <li><b>Suspended accounts:</b> Disallow deposits and withdrawals transactions, but allow viewing account information.</li>
+  <li><b>Closed accounts:</b> Disallow all transactions and viewing of account information.</li>
+</ul>
+
 Currently, the system relies on conditional statements within the Account class to check the account state and determine valid actions. This approach becomes cumbersome and error-prone as the number of states and their associated logic grows.
+
 Implement the State pattern to improve code maintainability and flexibility:
-Define Account States: Create separate classes representing different account states: ActiveState, SuspendedState, and ClosedState.
-Implement State Interface: Define an interface AccountState with methods for common actions like deposit, withdraw, activate, suspend, and close.
-Implement State Behaviors: Each concrete state class implements the AccountState interface, providing specific behavior for its respective state. For example, the ActiveState class would allow deposits and withdrawals, while the ClosedState wouldn't allow any transactions.
-Update Account Class:
-Include attributes for accountNumber and balance.
-Remove state-specific logic from the Account class.
-Introduce a reference to the current AccountState object.
-Delegate actions like deposit, withdraw, activate, suspend, and close to the current state object through its corresponding methods.
- 
+
+<ol>
+  <li><b>Define Account States:</b>  Create separate classes representing different account states: ActiveState, SuspendedState, and ClosedState.</li>
+  <li><b>Implement State Interface:</b> Define an interface AccountState with methods for common actions like deposit, withdraw, activate, suspend, and close.</li>
+  <li><b>Implement State Behaviors:</b> Each concrete state class implements the AccountState interface, providing specific behavior for its respective state. For example, the ActiveState class would allow deposits and withdrawals, while the ClosedState wouldn't allow any transactions.</li>
+  <li><b>Update Account Class:</b>
+  <ul>
+    <li>Include attributes for accountNumber and balance.</li>
+    <li>Remove state-specific logic from the Account class.</li>
+    <li>Introduce a reference to the current AccountState object.</li>
+    <li>Delegate actions like deposit, withdraw, activate, suspend, and close to the current state object through its corresponding methods.</li>
+  </ul>
+  </li>
+</ol>
+
 Logic:
 
 If the account is active
@@ -28,21 +39,21 @@ If the account is closed
 
 
 Composition of Account:
-attributes:
-accountNumber : String
-balance:  Double
-accountState:  AccountState
+<br>attributes:
+<br>accountNumber : String
+<br>balance:  Double
+<br>accountState:  AccountState
 
 Methods:
-Setter and getter methods
-deposit(Double depositAmount): void
-withdraw(Double withdrawAmount): void
-suspend(): void
-activate(): void
-close() : void
-toString()   // displays account number and balance
+<br>Setter and getter methods
+<br>deposit(Double depositAmount): void
+<br>withdraw(Double withdrawAmount): void
+<br>suspend(): void
+<br>activate(): void
+<br>close() : void
+<br>toString()   // displays account number and balance
 
-Note:  No if-else, switch will be used
+<b>Note:</b> No if-else, switch will be used
 
 Create AccountTest() class to test the Account:
 
@@ -87,3 +98,4 @@ myAccount.deposit(1000.0);// Show message "You cannot deposit on closed //accoun
 </pre> </code>
 
 # Class Diagram
+![State Design Pattern](https://github.com/RonanSoriano/statePattern/assets/142371669/f2b2556e-9964-47df-b965-31ea3e373ab2)
